@@ -24,7 +24,6 @@ export default class CCFieldValidator {
 
   validateValues = (formValues) => {
     const numberValidation = valid.number(formValues.number);
-    alert(JSON.stringify(valid.number(formValues.number)));
     const expiryValidation = valid.expirationDate(formValues.expiry);
     const maxCVCLength = (numberValidation.card || FALLBACK_CARD).code.size;
     const cvcValidation = valid.cvv(formValues.cvc, maxCVCLength);
