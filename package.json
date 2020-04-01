@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/sbycrosz/react-native-credit-card-input#readme",
   "dependencies": {
-    "card-validator": "^6.2.0",
+    "card-validator": "https://github.com/federicoEllena/card-validator",
     "lodash.compact": "^3.0.1",
     "lodash.every": "^4.6.0",
     "lodash.pick": "^4.4.0",
