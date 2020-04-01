@@ -82,6 +82,8 @@ const toStatus = validation => {
          "invalid";
 };
 
+const maestroCardStatus = numberValidation => numberValidation.card.type === "maestro" && "valid";
+
 const FALLBACK_CARD = { gaps: [4, 8, 12], lengths: [16], code: { size: 3 } };
 export default class CCFieldValidator {
   constructor(displayedFields, validatePostalCode) {
@@ -97,7 +99,7 @@ export default class CCFieldValidator {
     const cvcValidation = valid.cvv(formValues.cvc, maxCVCLength);
 
     const validationStatuses = pick({
-      number: toStatus(numberValidation),
+      number: maestroCardStatus(numberValidation) || toStatus(numberValidation),
       expiry: toStatus(expiryValidation),
       cvc: toStatus(cvcValidation),
       name: !!formValues.name ? "valid" : "incomplete",
