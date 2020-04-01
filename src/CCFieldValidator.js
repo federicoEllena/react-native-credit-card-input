@@ -4,8 +4,8 @@ import values from "lodash.values";
 import every from "lodash.every";
 
 const MAESTRO_CARD_TYPE = {
-  niceType: 'Maestro',
-  type: 'maestro',
+  niceType: "Maestro",
+  type: "maestro",
   patterns: [
     493698,
     [500000, 506698],
@@ -43,31 +43,31 @@ const MAESTRO_CARD_TYPE = {
   gaps: [4, 8, 12],
   lengths: [12, 13, 14, 15, 16, 17, 18, 19],
   code: {
-    name: 'CVC',
+    name: "CVC",
     size: 3
   }
 };
 
 const VISA_CARD_TYPE = {
-  niceType: 'Visa',
-  type: 'visa',
+  niceType: "Visa",
+  type: "visa",
   patterns: [4, 4026, 417500, 4405, 4508, 4844, 4913, 4917],
   gaps: [4, 8, 12],
   lengths: [16, 18, 19],
   code: {
-    name: 'CVV',
+    name: "CVV",
     size: 3
   }
 };
 
 const HIPER_CARD_TYPE = {
-  niceType: 'Hipercard',
-  type: 'hipercard',
+  niceType: "Hipercard",
+  type: "hipercard",
   patterns: [606282, 637599, 637609, 637612, 384100, 384140, 384160, 606282, 637095, 637568],
   gaps: [4, 8, 12],
   lengths: [16],
   code: {
-    name: 'CVC',
+    name: "CVC",
     size: 3
   }
 };
@@ -91,6 +91,7 @@ export default class CCFieldValidator {
 
   validateValues = (formValues) => {
     const numberValidation = valid.number(formValues.number);
+    alert(JSON.stringify(valid.number(formValues.number)));
     const expiryValidation = valid.expirationDate(formValues.expiry);
     const maxCVCLength = (numberValidation.card || FALLBACK_CARD).code.size;
     const cvcValidation = valid.cvv(formValues.cvc, maxCVCLength);
